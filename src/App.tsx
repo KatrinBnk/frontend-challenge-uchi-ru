@@ -1,19 +1,16 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { Layout } from 'antd';
-import { useDispatch } from 'react-redux';
 import AppHeader from './components/AppHeader.tsx';
-import MainPage from './components/MainPage';
-import AllCatsPage from './components/AllCatsPage';
-import FavoritesPage from './components/FavoritesPage';
+import AppRouter from './AppRouter';
 import { initializeCats } from './redux/catsSlice';
+import {useAppDispatch} from "./redux/hooks.ts";
 
 const { Content } = Layout;
 
 const App: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    // Инициализация данных при загрузке приложения
     useEffect(() => {
         dispatch(initializeCats());
     }, [dispatch]);
@@ -23,11 +20,7 @@ const App: React.FC = () => {
             <Layout style={{ minHeight: '100vh' }}>
                 <AppHeader />
                 <Content style={{ padding: '20px' }}>
-                    <Routes>
-                        <Route path="/" element={<MainPage />} />
-                        <Route path="/all" element={<AllCatsPage />} />
-                        <Route path="/favorites" element={<FavoritesPage />} />
-                    </Routes>
+                    <AppRouter />
                 </Content>
             </Layout>
         </Router>
