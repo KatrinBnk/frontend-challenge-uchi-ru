@@ -83,7 +83,7 @@
 
 4. Запустите приложение:
    ```bash
-   npm start
+   npm run dev
    ```
 
 
