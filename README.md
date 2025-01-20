@@ -106,3 +106,30 @@
 - вконтакте: https://vk.com/katrin_bnk
 - почта:  yekaterina@bankoev.ru
 
+--- 
+
+# Скриншоты работы
+
+## Страница-знакомство 
+![Знакомство](./screenshots/homePage.png)
+## Вкладка "любимые котики"
+### Любимые котики
+![Любимые котики](./screenshots/favoritesPage.png)
+### Нет любимых котиков
+![Нет любимых котиков](./screenshots/favoritesPageEmpty.png)
+
+## Вкладка "все котики"
+![Все котики](./screenshots/allCatsPage.png)
+
+## Состояние карточек-котиков
+### Наведение на карточку котика
+![](./screenshots/hoveredCard.png)
+### Наведение на сердечко любимого котика
+![](./screenshots/hoveredLikedCard.png)
+### Наведение на сердечко еще не любимого котика
+![](./screenshots/hoveredUnLikedCard.png)
+
+## Был реализован простейший адаптив
+
+![](./screenshots/iPhoneSE.png)
+![](./screenshots/iPadPro.png)
