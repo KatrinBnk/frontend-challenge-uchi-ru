@@ -43,7 +43,7 @@ const FavoritesPage: React.FC = () => {
 
     if (!favoriteCats.length) {
         return (
-            <Empty description="Нет избранных котиков" style={{ margin: '50px auto' }} />
+            <Empty description="Нет любимых котиков" style={{ margin: '50px auto' }} />
         );
     }
 
