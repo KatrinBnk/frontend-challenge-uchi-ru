@@ -87,6 +87,15 @@ const catsSlice = createSlice({
 
             saveFavoritesToStorage(favoriteIds, isRemoved); // Передаём isRemoved
         },
+        clearFavorites: (state) => {
+            // Сбрасываем флаг isFavorite у всех котиков
+            state.allCats.forEach((cat) => {
+                cat.isFavorite = false;
+            });
+
+            // Очищаем  LocalStorage
+            saveFavoritesToStorage([], true);
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -142,5 +151,8 @@ const catsSlice = createSlice({
     },
 });
 
-export const { toggleFavorite } = catsSlice.actions;
+export const {
+    toggleFavorite,
+    clearFavorites
+} = catsSlice.actions;
 export default catsSlice.reducer;

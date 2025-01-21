@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { fetchFavoriteCatsFromStorage } from '../redux/catsSlice.ts';
+import {clearFavorites, fetchFavoriteCatsFromStorage} from '../redux/catsSlice.ts';
 import { RootState } from '../redux/store.ts';
-import { Spin, Empty } from 'antd';
+import {Spin, Empty, FloatButton, ConfigProvider} from 'antd';
 import CatPostCard from "../components/CatPostCard.tsx";
 import {useAppDispatch} from "../redux/hooks.ts";
+import {DeleteOutlined} from "@ant-design/icons";
+
 
 const FavoritesPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -46,11 +48,30 @@ const FavoritesPage: React.FC = () => {
     }
 
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '20px' }}>
-            {favoriteCats.map((cat) => (
-                <CatPostCard key={cat.id} cat={cat}/>
-            ))}
-        </div>
+        <>
+            <ConfigProvider
+                theme={{
+                    token: {
+                        colorPrimary: '#d11141',
+                        colorPrimaryHover: '#FF5D55',
+                        boxShadowSecondary: '0 4px 4px 0 #0000003D',
+                    },
+                }}
+            >
+                <FloatButton
+                    onClick={() => dispatch(clearFavorites())}
+                    icon={<DeleteOutlined />}
+                    tooltip='Удалить любимых котиков...'
+                    type="primary"
+                    className="custom-float-button"
+                />
+            </ConfigProvider>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '20px', justifyContent: 'center'}}>
+                {favoriteCats.map((cat) => (
+                    <CatPostCard key={cat.id} cat={cat}/>
+                ))}
+            </div>
+        </>
     );
 };
 
