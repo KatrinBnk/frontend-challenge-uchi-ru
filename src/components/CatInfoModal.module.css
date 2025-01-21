@@ -1,9 +1,9 @@
 .modalContent {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
     height: 100%;
 }
@@ -15,16 +15,12 @@
 }
 
 .breedName {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #444;
-}
-
-.originText {
     font-size: 16px;
     margin-bottom: 8px;
-    color: #555;
+    color: #444;
+    text-align: left;
+    text-indent: 20px;
+    width: 100%;
 }
 
 .descriptionText {
@@ -32,13 +28,35 @@
     line-height: 1.5;
     color: #666;
     margin-bottom: 16px;
+    text-align: left;
+    text-indent: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
+}
+
+.sorryText{
+    font-size: 16px;
+    line-height: 1.5;
+    color: #888;
+    margin-bottom: 16px;
+    text-align: left;
+    text-indent: 20px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
 }
 
 .errorText {
     font-size: 16px;
     color: #e74c3c;
+    text-align: center;
 }
 
 .catCard {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
